@@ -3,7 +3,8 @@ import 'package:flutter_base/features/auth/domain/user.dart';
 import 'package:flutter_base/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:flutter_base/features/user/presentation/pages/user_profile_page.dart';
 import 'package:flutter_base/shared/themes/app_theme.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_base/shared/i18n/l10n/app_localizations.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,8 +16,13 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: <Locale>[const Locale('en'), const Locale('ja')],
       home: const SignInPage(),
       routes: <String, WidgetBuilder>{
         '/profile':

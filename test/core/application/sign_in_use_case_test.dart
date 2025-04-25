@@ -18,9 +18,7 @@ void main() {
     const String email = 'test@example.com';
     const String password = 'password123';
 
-    when(
-      mockAuthRepository.signIn(email, password),
-    ).thenAnswer((_) => Future<void>.value());
+    when(mockAuthRepository.signIn(email, password)).thenAnswer((_) async {});
 
     await signInUseCase(SignInParams(email: email, password: password));
 
