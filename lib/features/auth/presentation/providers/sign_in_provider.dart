@@ -3,9 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'sign_in_state.dart';
 
 final StateNotifierProvider<SignInController, SignInState> signInProvider =
-    StateNotifierProvider<SignInController, SignInState>((
-      StateNotifierProviderRef<SignInController, SignInState> ref,
-    ) {
+    StateNotifierProvider<SignInController, SignInState>((Ref ref) {
       return SignInController();
     });
 
